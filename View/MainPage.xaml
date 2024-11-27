@@ -9,7 +9,7 @@
             Spacing="25">
         <StackLayout  Margin="0,10,0,0" >
             <Label Text="Số tiền" FontFamily="NM" TextColor="Black"/>
-            <Frame Padding="0">
+            <Frame Padding="0" BackgroundColor="White">
                 <Entry FontSize="15"  TextChanged="Entry_TextChanged" Keyboard="Numeric" x:Name="AmountEntry" ClearButtonVisibility="WhileEditing" Placeholder="Nhập số tiền" PlaceholderColor="{x:StaticResource Gray300}" TextColor="Black" FontFamily="NM"/>
             </Frame>
         </StackLayout>
