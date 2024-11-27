@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="VietQrMobile.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:VietQrMobile.View"
+    Shell.FlyoutBehavior="Disabled"
+    Title="VietQrMobile">
+
+    <TabBar>
+        <Tab Title="Home">
+            <Tab.Icon>
+                <FontImageSource Glyph="{x:StaticResource QR}" Color="#899ead" FontFamily="FAS"/>
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+        <Tab Title="Setting">
+            <Tab.Icon>
+                <FontImageSource Glyph="{x:StaticResource Setting}" Color="#899ead"  FontFamily="FAS"/>
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate local:SettingPage}"/>
+        </Tab>
+    </TabBar>
+</Shell>

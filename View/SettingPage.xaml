@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VietQrMobile.View.SettingPage"
+             BackgroundColor="White"
+             xmlns:zoft="http://zoft.MauiExtensions/Controls"
+             NavigationPage.HasBackButton="False">
+    <VerticalStackLayout
+    Padding="30,0"
+    Spacing="25">
+        <StackLayout Margin="0,10,0,0">
+            <Label Text="Số tài khoản" FontFamily="NM" TextColor="Black"/>
+            <Frame Padding="0">
+                <Entry 
+                    x:Name="AccountNoEntry"
+                    ClearButtonVisibility="WhileEditing" 
+                    Placeholder="Nhập số tài khoản" 
+                    PlaceholderColor="{x:StaticResource Gray300}" 
+                    TextColor="Black" 
+                    FontFamily="NM"/>
+            </Frame>
+        </StackLayout>
+        <StackLayout>
+            <Label Text="Tên tài khoản" FontFamily="NM" TextColor="Black"/>
+            <Frame Padding="0">
+                <Entry 
+                    x:Name="AccountNameEntry"
+                    ClearButtonVisibility="WhileEditing" 
+                    Placeholder="Nhập tên tài khoản" 
+                    PlaceholderColor="{x:StaticResource Gray300}" 
+                    TextColor="Black" 
+                    FontFamily="NM"/>
+            </Frame>
+        </StackLayout>
+        <StackLayout>
+            <Label Text="Mã ngân hàng" FontFamily="NM" TextColor="Black"/>
+            <Frame Padding="0">
+                <zoft:AutoCompleteEntry
+                     PlaceholderColor="{x:StaticResource Gray400}"
+                     TextColor="Black"
+                     FontFamily="NB"
+                     TextChanged="bankFilter_TextChanged"
+                     SuggestionChosen="bank_SuggestionChosen"
+                     x:Name="BankList"
+                     DisplayMemberPath="ShortName"
+                     TextMemberPath="Bin" />
+            </Frame>
+        </StackLayout>
+
+        <Button
+        x:Name="Submit"
+        Text="Cập nhật" 
+        Background="#007bff"
+        TextColor="White"
+        FontFamily="NB"
+        Clicked="updateAccount"
+        HorizontalOptions="Fill" />
+    </VerticalStackLayout>
+</ContentPage>
