@@ -29,6 +29,7 @@
                     Placeholder="Nhập tên tài khoản" 
                     PlaceholderColor="{x:StaticResource Gray300}" 
                     TextColor="Black"
+                    TextTransform="Uppercase"
                     FontFamily="NM"/>
             </Frame>
         </StackLayout>
