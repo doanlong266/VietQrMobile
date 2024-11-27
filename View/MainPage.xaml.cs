@@ -64,7 +64,7 @@ namespace VietQrMobile.View
             var account = await _databaseService.GetAccountById(1);
             if (account == null)
             {
-                await DisplayAlert("Error", "Không tìm thấy tài khoản trong cơ sở dữ liệu!", "OK");
+                await DisplayAlert("Error", "Chưa có tài khoản hãy setting", "OK");
                 return;
             }
 

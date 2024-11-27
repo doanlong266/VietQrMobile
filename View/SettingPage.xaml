@@ -28,7 +28,7 @@
                     ClearButtonVisibility="WhileEditing" 
                     Placeholder="Nhập tên tài khoản" 
                     PlaceholderColor="{x:StaticResource Gray300}" 
-                    TextColor="Black" 
+                    TextColor="Black"
                     FontFamily="NM"/>
             </Frame>
         </StackLayout>
@@ -40,7 +40,6 @@
                      TextColor="Black"
                      Placeholder="Tìm kiếm mã ngân hàng"
                      FontFamily="NB"
-                     BackgroundColor="White"
                      TextChanged="bankFilter_TextChanged"
                      SuggestionChosen="bank_SuggestionChosen"
                      x:Name="BankList"

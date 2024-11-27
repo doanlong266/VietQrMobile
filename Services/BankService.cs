@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using Controls.UserDialogs.Maui;
+using System.Text.Json;
 using VietQrMobile.Models;
 
 namespace VietQrMobile.Services
@@ -14,10 +15,9 @@ namespace VietQrMobile.Services
 
         public async Task<List<Bank>> GetBanksAsync()
         {
-            // Kiểm tra kết nối mạng
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
-                await Application.Current.MainPage.DisplayAlert("Lỗi kết nối", "Không có kết nối Internet. Vui lòng kiểm tra và thử lại.", "OK");
+                UserDialogs.Instance.Alert("Lỗi kết nối", "Không có kết nối Internet. Vui lòng kiểm tra và thử lại.", "OK");
                 return new List<Bank>();
             }
 
@@ -44,12 +44,12 @@ namespace VietQrMobile.Services
             }
             catch (HttpRequestException httpEx)
             {
-                await Application.Current.MainPage.DisplayAlert("Lỗi", $"Không thể kết nối đến máy chủ: {httpEx.Message}", "OK");
+                UserDialogs.Instance.Alert("Lỗi", $"Không thể kết nối đến máy chủ: {httpEx.Message}", "OK");
                 return new List<Bank>();
             }
             catch (Exception ex)
             {
-                await Application.Current.MainPage.DisplayAlert("Lỗi", $"Có lỗi xảy ra: {ex.Message}", "OK");
+                UserDialogs.Instance.Alert("Lỗi", $"Có lỗi xảy ra: {ex.Message}", "OK");
                 return new List<Bank>();
             }
         }
