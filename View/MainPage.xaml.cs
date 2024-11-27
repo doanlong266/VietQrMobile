@@ -3,6 +3,7 @@ using System.Text;
 using VietQrMobile.Models;
 using VietQrMobile.Services;
 using Controls.UserDialogs.Maui;
+using System.Globalization;
 
 namespace VietQrMobile.View
 {
@@ -20,13 +21,19 @@ namespace VietQrMobile.View
         {
             if (sender is Entry entry)
             {
-                string rawText = e.NewTextValue?.Replace(",", "").Trim() ?? "";
+                string rawText = e.NewTextValue?.Replace(".", "").Trim() ?? "";
 
                 if (long.TryParse(rawText, out long amount))
                 {
-                    entry.TextChanged -= Entry_TextChanged; 
-                    entry.Text = string.Format("{0:N0}", amount);
+                    entry.TextChanged -= Entry_TextChanged;
+
+                    CultureInfo cultureInfo = new CultureInfo("vi-VN");
+                    cultureInfo.NumberFormat.CurrencyGroupSeparator = ".";
+                    cultureInfo.NumberFormat.NumberGroupSeparator = ".";
+                    entry.Text = string.Format(cultureInfo, "{0:N0}", amount);
+
                     entry.TextChanged += Entry_TextChanged;
+
                     entry.CursorPosition = entry.Text.Length;
                 }
             }
@@ -46,7 +53,7 @@ namespace VietQrMobile.View
                 await DisplayAlert("Error", "Vui lòng nhập số tiền!", "OK");
                 return;
             }
-            var amountText = amountString.Replace(",", "");
+            var amountText = amountString.Replace(".", "");
             var cleanAmountText = new string(amountText.Where(char.IsDigit).ToArray());
             if (!long.TryParse(cleanAmountText, out var amount) || amount <= 0)
             {

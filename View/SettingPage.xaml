@@ -34,11 +34,13 @@
         </StackLayout>
         <StackLayout>
             <Label Text="Mã ngân hàng" FontFamily="NM" TextColor="Black"/>
-            <Frame Padding="0"  BackgroundColor="White">
+            <Frame Padding="0"  BackgroundColor="White" BorderColor="Black">
                 <zoft:AutoCompleteEntry
                      PlaceholderColor="{x:StaticResource Gray400}"
                      TextColor="Black"
+                     Placeholder="Tìm kiếm mã ngân hàng"
                      FontFamily="NB"
+                     BackgroundColor="White"
                      TextChanged="bankFilter_TextChanged"
                      SuggestionChosen="bank_SuggestionChosen"
                      x:Name="BankList"
